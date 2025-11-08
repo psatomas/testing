@@ -1,5 +1,5 @@
-   0.026643381s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="testing"}: cargo::core::compiler::fingerprint: fingerprint error for testing v0.1.0 (/home/tomas/Documents/projects/rust/testing)/Check { test: false }/TargetInner { name: "testing", doc: true, ..: with_path("/home/tomas/Documents/projects/rust/testing/src/main.rs", Edition2024) }
-   0.026694605s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="testing"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/tomas/Documents/projects/rust/testing/target/debug/.fingerprint/testing-d34b7b5dfea1cedd/bin-testing`
+   0.013162622s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint: fingerprint error for testing v0.1.0 (/home/tomas/Documents/projects/rust/testing)/Check { test: false }/TargetInner { name: "intro_to_testing", doc: true, ..: with_path("/home/tomas/Documents/projects/rust/testing/src/bin/intro_to_testing.rs", Edition2024) }
+   0.013184817s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/tomas/Documents/projects/rust/testing/target/debug/.fingerprint/testing-475b66b8665c14ff/bin-intro_to_testing`
 
 Caused by:
     No such file or directory (os error 2)
@@ -43,50 +43,10 @@ Stack backtrace:
   25: __libc_start_main_impl
              at ./csu/../csu/libc-start.c:360:3
   26: <unknown>
-   0.136640033s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="testing"}: cargo::core::compiler::fingerprint: fingerprint error for testing v0.1.0 (/home/tomas/Documents/projects/rust/testing)/Check { test: true }/TargetInner { name: "testing", doc: true, ..: with_path("/home/tomas/Documents/projects/rust/testing/src/main.rs", Edition2024) }
-   0.136763951s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="testing"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/tomas/Documents/projects/rust/testing/target/debug/.fingerprint/testing-b304e5ec26ec4a3d/test-bin-testing`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: cargo_util::paths::read_bytes
-   1: cargo_util::paths::read
-   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   3: cargo::core::compiler::fingerprint::prepare_target
-   4: cargo::core::compiler::compile
-   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   6: cargo::ops::cargo_compile::compile_ws
-   7: cargo::ops::cargo_compile::compile_with_exec
-   8: cargo::ops::cargo_compile::compile
-   9: cargo::commands::check::exec
-  10: <cargo::cli::Exec>::exec
-  11: cargo::main
-  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  13: std::rt::lang_start::<()>::{closure#0}
-  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/core/src/ops/function.rs:287:21
-  15: std::panicking::catch_unwind::do_call
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panicking.rs:590:40
-  16: std::panicking::catch_unwind
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panicking.rs:553:19
-  17: std::panic::catch_unwind
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panic.rs:359:14
-  18: std::rt::lang_start_internal::{{closure}}
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/rt.rs:175:24
-  19: std::panicking::catch_unwind::do_call
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panicking.rs:590:40
-  20: std::panicking::catch_unwind
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panicking.rs:553:19
-  21: std::panic::catch_unwind
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/panic.rs:359:14
-  22: std::rt::lang_start_internal
-             at /rustc/f46475914de626785090a05ae037578aaa119fc8/library/std/src/rt.rs:171:5
-  23: main
-  24: __libc_start_call_main
-             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
-  25: __libc_start_main_impl
-             at ./csu/../csu/libc-start.c:360:3
-  26: <unknown>
+   0.090317866s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint: stale: changed "/home/tomas/Documents/projects/rust/testing/src/bin/intro_to_testing.rs"
+   0.090325541s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint:           (vs) "/home/tomas/Documents/projects/rust/testing/target/debug/.fingerprint/testing-48d035ab678d74c1/dep-test-bin-intro_to_testing"
+   0.090329163s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762632075, nanos: 867087193 } < FileTime { seconds: 1762632120, nanos: 614001473 }
+   0.090361960s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint: fingerprint dirty for testing v0.1.0 (/home/tomas/Documents/projects/rust/testing)/Check { test: true }/TargetInner { name: "intro_to_testing", doc: true, ..: with_path("/home/tomas/Documents/projects/rust/testing/src/bin/intro_to_testing.rs", Edition2024) }
+   0.090372163s  INFO prepare_target{force=false package_id=testing v0.1.0 (/home/tomas/Documents/projects/rust/testing) target="intro_to_testing"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/tomas/Documents/projects/rust/testing/target/debug/.fingerprint/testing-48d035ab678d74c1/dep-test-bin-intro_to_testing", reference_mtime: FileTime { seconds: 1762632075, nanos: 867087193 }, stale: "/home/tomas/Documents/projects/rust/testing/src/bin/intro_to_testing.rs", stale_mtime: FileTime { seconds: 1762632120, nanos: 614001473 } }))
     Checking testing v0.1.0 (/home/tomas/Documents/projects/rust/testing)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.20s
+error: could not compile `testing` (bin "intro_to_testing") due to 1 previous error
