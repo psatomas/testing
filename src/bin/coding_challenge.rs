@@ -108,6 +108,9 @@ impl Salad {
         }
     }
     
+    fn is_valid(&self) -> bool {
+        self.vegetables.len() > 0
+    }
 }
 
 #[cfg(test)]
@@ -127,5 +130,16 @@ mod tests {
         assert_eq!(salad.protein, Protein::Steak);
         assert_eq!(salad.vegetables, vec![Vegetable::SweetPotato, Vegetable::Tomato]);
         assert_eq!(salad.dressing, Dressing::Italian);
+    }
+
+    #[rstest]
+    fn salad_should_have_at_least_one_vegetable() {
+        let salad = Salad::new(
+            Protein::CrispyChicken,
+            vec![Vegetable::Cucumber, Vegetable::Cucumber, Vegetable::Tomato],
+            Dressing::Ranch,
+        );
+
+        assert!(salad.is_valid());
     }
 }
