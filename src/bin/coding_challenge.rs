@@ -92,3 +92,40 @@ impl Caloric for Dressing {
         }
     }
 }
+
+struct Salad {
+    protein: Protein,
+    vegetables: Vec<Vegetable>,
+    dressing: Dressing,
+}
+
+impl Salad {
+    fn new(protein: Protein, vegetables: Vec<Vegetable>, dressing: Dressing) -> Self {
+        Self {
+            protein,
+            vegetables,
+            dressing,
+        }
+    }
+    
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use pretty_assertions::assert_eq;
+    use rstest::{fixture, rstest};
+
+    #[rstest]
+    fn salad_contains_protein_vegetables_and_dressing() {
+        let salad = Salad::new(
+            Protein::Steak,
+            vec![Vegetable::SweetPotato, Vegetable::Tomato],
+            Dressing::Italian,
+        );
+
+        assert_eq!(salad.protein, Protein::Steak);
+        assert_eq!(salad.vegetables, vec![Vegetable::SweetPotato, Vegetable::Tomato]);
+        assert_eq!(salad.dressing, Dressing::Italian);
+    }
+}
