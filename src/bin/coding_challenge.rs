@@ -111,6 +111,14 @@ impl Salad {
     fn is_valid(&self) -> bool {
         self.vegetables.len() > 0
     }
+
+    fn calories(&self) -> u32 {
+        self.protein.calories() + self.dressing.calories() +
+        self.vegetables
+        .iter()
+        .map(|v| v.calories())
+        .sum::<u32>()
+    }
 }
 
 #[cfg(test)]
@@ -156,7 +164,9 @@ mod tests {
     fn salad_calculates_total_calories_from_ingredients(
         crispy_chicken_salad_with_three_vegetables_and_ranch_dressing: Salad,
     ) {
-        assert!(
-            crispy_chicken_salad_with_three_vegetables_and_ranch_dressing.is_valid());
+        assert_eq!(
+            crispy_chicken_salad_with_three_vegetables_and_ranch_dressing.calories(),
+            685
+        );
     }
 }
