@@ -169,4 +169,18 @@ mod tests {
             685
         );
     }
+
+    #[rstest]
+    fn salad_can_identify_that_it_has_duplicate_vegetables() {
+        let salad = Salad::new(
+            Protein::Steak,
+            vec![
+                Vegetable::Cucumber,
+                Vegetable::Cucumber,
+            ],
+            Dressing::Italian,
+        );
+        
+        assert!(salad.is_valid());
+    }
 }
