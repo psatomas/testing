@@ -35,7 +35,7 @@ Finally, define a 'has_duplicate_vegetables' method. It should
 determine if the salad includes any vegetable more than once.
 Return a Boolean.
 */
- 
+use std::collections::HashSet;
 trait Caloric {
     fn calories(&self) -> u32;
 }
@@ -119,6 +119,19 @@ impl Salad {
         .map(|v| v.calories())
         .sum::<u32>()
     }
+
+    fn has_duplicate_vegetables(&self) -> bool {
+        self.vegetables
+        .clone()
+        .into_iter()
+        .fold(
+            HashSet::<Vegetable>::new(),|mut data, vegetable| {
+                data.insert(vegetable);
+                data
+            })
+            .len()
+            < self.vegetables.len()
+    }
 }
 
 #[cfg(test)]
@@ -181,6 +194,6 @@ mod tests {
             Dressing::Italian,
         );
         
-        assert!(salad.is_valid());
+        assert!(salad.has_duplicate_vegetables());
     }
 }
