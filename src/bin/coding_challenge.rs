@@ -119,6 +119,19 @@ mod tests {
     use pretty_assertions::assert_eq;
     use rstest::{fixture, rstest};
 
+    #[fixture]
+    fn crispy_chicken_salad_with_three_vegetables_and_ranch_dressing() -> Salad {
+        Salad::new(
+            Protein::CrispyChicken,
+            vec![
+                Vegetable::SweetPotato,
+                Vegetable::Cucumber,
+                Vegetable::Tomato
+            ],
+            Dressing::Ranch,
+        )
+    }
+
     #[rstest]
     fn salad_contains_protein_vegetables_and_dressing() {
         let salad = Salad::new(
@@ -133,13 +146,17 @@ mod tests {
     }
 
     #[rstest]
-    fn salad_should_have_at_least_one_vegetable() {
-        let salad = Salad::new(
-            Protein::CrispyChicken,
-            vec![Vegetable::Cucumber, Vegetable::Cucumber, Vegetable::Tomato],
-            Dressing::Ranch,
-        );
+    fn salad_should_have_at_least_one_vegetable(
+        crispy_chicken_salad_with_three_vegetables_and_ranch_dressing: Salad,
+    ) {
+        assert!(crispy_chicken_salad_with_three_vegetables_and_ranch_dressing.is_valid());
+    }
 
-        assert!(salad.is_valid());
+    #[rstest]
+    fn salad_calculates_total_calories_from_ingredients(
+        crispy_chicken_salad_with_three_vegetables_and_ranch_dressing: Salad,
+    ) {
+        assert!(
+            crispy_chicken_salad_with_three_vegetables_and_ranch_dressing.is_valid());
     }
 }
